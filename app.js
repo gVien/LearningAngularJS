@@ -1,8 +1,22 @@
 angular.module("flapperNews", [])
+// creating a factory to store the posts data since
+// we don't have a database to store the posts (yet)
+.factory('posts', [function(){
+  //create new object to store the posts
+  var o = {
+    posts: []
+  };
+  return o;
+}])
+
 .controller("MainCtrl", [
 "$scope",
-function($scope) {
+"posts",
+function($scope, posts) {
   $scope.test = "Hello World!";
+
+  //binding the $scope.posts to the posts array in our service
+  $scope.posts = posts.posts;
 
   // displaying Lists
   // $scope variable serves as the bridge between Angular controllers
