@@ -1,4 +1,23 @@
 angular.module("flapperNews", ["ui.router"])
+.config([
+"$stateProvider",
+"$urlRouterProvider",
+function($stateProvider, $urlRouterProvider) {
+
+  // setting up the home route
+  $stateProvider
+    .state("home", {
+      url: "/home",
+      templateUrl: "/home.html",
+      controller: "MainCtrl"
+    })
+
+  // otherwise() redirect unspecified routes
+  $urlRouterProvider.otherwise("home");
+}])
+
+
+
 // creating a factory to store the posts data since
 // we don't have a database to store the posts (yet)
 .factory('posts', [function(){
