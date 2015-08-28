@@ -1,4 +1,4 @@
-angular.module("flapperNews", [])
+angular.module("flapperNews", ["ui.router"])
 // creating a factory to store the posts data since
 // we don't have a database to store the posts (yet)
 .factory('posts', [function(){
