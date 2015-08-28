@@ -10,10 +10,10 @@ function($scope) {
 // if we want something to be accessible in the template (fxn or variable) then bind it to $scope
 // ng-repeat has to be used in index.html
 $scope.posts = [
-  'post 1',
-  'post 2',
-  'post 3',
-  'post 4',
-  'post 5'
+  {title: 'post 1', upvotes: 5},
+  {title: 'post 2', upvotes: 2},
+  {title: 'post 3', upvotes: 21},
+  {title: 'post 4', upvotes: 23},
+  {title: 'post 5', upvotes: 27}
 ];
 }]);
