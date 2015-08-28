@@ -18,6 +18,7 @@ ng-app is the module while ng-controller is the controller -->
     </div>
   </div>
 
+<!-- creating an inline template, notice the id references a file name but it has not been created (since it's inline) -->
 <script type="text/ng-template" id="/home.html">
   <div class="page-header">
     <h1>Flapper News</h1>
@@ -36,6 +37,9 @@ ng-app is the module while ng-controller is the controller -->
       <span ng-hide="post.link">
         {{post.title}}
       </span>
+    </span>
+    <span>
+      <a href="#/posts/{{$index}}">Comments</a>
     </span>
   </div>
 
@@ -59,6 +63,28 @@ ng-app is the module while ng-controller is the controller -->
     </div>
     <button type="submit" class="btn btn-primary">Post</button>
   </form>
+</script>
+
+<script type="text/ng-template" id="/posts.html">
+  <div class="page-header">
+    <h3>
+      <a ng-show="post.link" href="{{post.link}}">
+        {{post.title}}
+      </a>
+      <span ng-hide="post.link">
+        {{post.title}}
+      </span>
+    </h3>
+  </div>
+
+  <div ng-repeat="comment in post.comments | orderBy: '-upvotes'">
+    <span class="glyphicon glyphicon-thumbs-up"
+      ng-click="incrementUpvotes(comment)"></span>
+    {{comment.upvotes}} - by {{comment.author}}
+    <span style="font-size: 20px; margin-left: 10px;">
+      {{comment.body}}
+    </span>
+  </div>
 </script>
 </body>
 </html>
