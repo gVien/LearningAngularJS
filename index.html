@@ -29,11 +29,11 @@ ng-app is the module while ng-controller is the controller -->
       ng-click="incrementUpvotes(post)"></button>
       {{post.upvotes}}
     <span style="font-size:20px; margin-left:10px;">
-      <!-- ng-show takes you to the new link -->
+      <!-- //ng-show takes you to the new link -->
       <a ng-show="post.link" href="{{post.title}}">
         {{post.title}}
       </a>
-      <!-- if no link is provded, then the title show -->
+      <!-- //if no link is provded, then the title show -->
       <span ng-hide="post.link">
         {{post.title}}
       </span>
@@ -43,7 +43,7 @@ ng-app is the module while ng-controller is the controller -->
     </span>
   </div>
 
-  <!-- ng-submit also works when a user press "enter" key -->
+  <!-- //ng-submit also works when a user press "enter" key -->
   <form ng-submit="addPost()"
     style="margin-top: 30px;">
     <h3>Add a new post</h3>
@@ -85,6 +85,20 @@ ng-app is the module while ng-controller is the controller -->
       {{comment.body}}
     </span>
   </div>
+
+  <form ng-submit="addComment()"
+    style="margin-top: 30px;">
+    <h3>Add a new comment</h3>
+
+    <div class="form-group">
+      <input type="text"
+      class="form-control"
+      placeholder="Comment"
+      ng-model="body"></input>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Post</button>
+  </form>
 </script>
 </body>
 </html>
