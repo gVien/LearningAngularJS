@@ -8,8 +8,8 @@
 <!-- ng-app and ng-controller are connected with the app.js files
 ng-app is the module while ng-controller is the controller -->
 <body ng-app="flapperNews" ng-controller="MainCtrl">
-  <div>
-    {{test}}
+  <div ng-repeat="post in posts">
+    {{post}}
   </div>
 
 </body>
